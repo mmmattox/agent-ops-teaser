@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SKU scorecard</title>
+<style>
+  :root { font-family: ui-sans-serif, system-ui, sans-serif; color: #111; }
+  body { max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.45; }
+  h1 { font-size: 1.25rem; }
+  label, .row { display: block; margin: 0.6rem 0; }
+  input, textarea, select { width: 100%; box-sizing: border-box; padding: 0.4rem; }
+  textarea { min-height: 4rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th, td { border: 1px solid #ccc; padding: 0.35rem; }
+  button { margin: 0.75rem 0.4rem 0 0; padding: 0.45rem 0.8rem; }
+  .out { white-space: pre-wrap; background: #f6f6f6; padding: 0.8rem; font-size: 0.85rem; }
+  .warn { color: #8a1f1f; }
+</style>
+<h1>SKU scorecard</h1>
+<p>Local only. Nothing is uploaded. A SKU that cannot fill every row is not a SKU. Write <strong>BLIND</strong> if a number is not on the page.</p>
+<label>Date <input id="date"></label>
+<label>Candidate name <input id="name"></label>
+<label>One-line job <input id="job"></label>
+<p>Demand (live pages only)</p>
+<table>
+  <thead><tr><th>Analog</th><th>URL</th><th>Price on page</th><th>Users / ratings</th></tr></thead>
+  <tbody>
+    <tr><td><input id="a1"></td><td><input id="u1"></td><td><input id="p1"></td><td><input id="r1"></td></tr>
+    <tr><td><input id="a2"></td><td><input id="u2"></td><td><input id="p2"></td><td><input id="r2"></td></tr>
+  </tbody>
+</table>
+<label>No-talk: fulfillment is a file or a button?
+  <select id="nt1"><option>Yes</option><option>No</option></select></label>
+<label>Checkout handled by a processor?
+  <select id="nt2"><option>Yes</option><option>No</option></select></label>
+<label>Failures are local, not “email us your file”?
+  <select id="nt3"><option>Yes</option><option>No</option></select></label>
+<label>Search queries people already type <input id="q"></label>
+<label>Pay reason in one sentence <input id="pay"></label>
+<label>v1 in / never <textarea id="scope"></textarea></label>
+<label>Most likely kill risk <input id="kill"></label>
+<label>Verdict
+  <select id="v"><option>SHIP</option><option>HOLD</option><option>KILL</option></select></label>
+<button type="button" id="go">Export markdown</button>
+<button type="button" id="dl">Download .md</button>
+<p class="warn" id="flag"></p>
+<pre class="out" id="out"></pre>
+<script>
+const $ = id => document.getElementById(id);
+$("date").value = new Date().toISOString().slice(0,10);
+function md() {
+  const nt = [$("nt1").value, $("nt2").value, $("nt3").value];
+  $("flag").textContent = nt.includes("No") ? "Kill or cut scope: a No on the no-talk test." : "";
+  return `# SKU scorecard
+**Date:** ${$("date").value}
+**Candidate name:** ${$("name").value}
+**One-line job:** ${$("job").value}
+
+## Demand (from live pages only)
+| Analog | URL | Price on page | Users / ratings |
+|---|---|---|---|
+| ${$("a1").value} | ${$("u1").value} | ${$("p1").value} | ${$("r1").value} |
+| ${$("a2").value} | ${$("u2").value} | ${$("p2").value} | ${$("r2").value} |
+
+If a number is not on the page, write BLIND.
+
+## No-talk test
+- File or button: ${$("nt1").value}
+- Processor checkout: ${$("nt2").value}
+- Local failures: ${$("nt3").value}
+
+## First-dollar
+Queries: ${$("q").value}
+Pay reason: ${$("pay").value}
+
+## Build
+${$("scope").value}
+
+## Kill risk
+${$("kill").value}
+
+## Verdict
+${$("v").value}
+`;
+}
+$("go").onclick = () => { $("out").textContent = md(); };
+$("dl").onclick = () => {
+  const blob = new Blob([md()], {type: "text/markdown"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "sku-scorecard.md";
+  a.click();
+};
+</script>
