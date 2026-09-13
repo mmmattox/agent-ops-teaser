@@ -20,6 +20,6 @@ Ship digital products and docs with specialist agents. One human owner. Agents e
 ## Want the full pack?
 
 - **Bot Company OS** ($29) — full operating system: https://buy.stripe.com/dRmcN545ibFW9lneEg6sw00
-- Full **Agent Ops Drop-In Pack** — more rules + skills (ownership, ZIP QA, SKU scorecard, listing copy, distribution drafts). See README for Stripe / product links when live.
-- Site: https://mmmattox.github.io/maxwellai/
+- Site: https://mmmattox.github.io/maxwellai/bot-company-os/
+- Sell BCOS as templates + gates. Never claim it earns while you sleep.
 - Support: mmattox10@gmail.com
