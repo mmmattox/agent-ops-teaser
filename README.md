@@ -1,79 +1,61 @@
-# MaxwellAI Agent Ops — Free Teaser
+# Blind Ops Kit
 
-**Brand:** [MaxwellAI](https://mmmattox.github.io/maxwellai/) · **Support:** mmattox10@gmail.com
+Stop agents from inventing user counts and revenue. Three local tools. MIT.
 
-This repo is a **free teaser** of the MaxwellAI Agent Ops operating layer for Cursor (and compatible agent workflows). It is **not** the full Drop-In Pack.
+**Brand:** [MaxwellAI](https://mmmattox.github.io/maxwellai/) · Support: mmattox10@gmail.com
 
-You get enough to feel the philosophy — blind metrics, receive-only money, evidence-only briefs — then a clear path to the paid products.
+This is a **tool**, not a business engine. It does not get you customers. It does not make money while you sleep.
 
----
+## What’s in the box
 
-## What’s free here
+| Tool | What it does |
+|------|----------------|
+| `tools/sku-scorecard.html` | Local form. Exports a scorecard `.md`. Nothing is uploaded. If a number isn’t on the page, write **BLIND**. |
+| `scripts/blind-lint.py` | Grep-lints markdown for “trusted by N”, fake revenue, star ratings. Exit 1 on hits. |
+| `.cursor/rules/never-invent-numbers.mdc` | Cursor rule: unknown metric → `BLIND` or omit. |
+| `skills/nightly-brief/SKILL.md` | Evidence-only four-block brief. Empty honesty beats fake wins. |
 
-| Item | Path |
-|------|------|
-| Operating stub | `AGENTS.md` |
-| Cursor rule (BLIND metrics) | `.cursor/rules/never-invent-numbers.mdc` |
-| Skill: nightly ops brief | `skills/nightly-brief/SKILL.md` |
-| License | `LICENSE` (MIT) |
-
-**Not included (paid pack / OS):** extra rules (one-owner, receive-only money, ZIP QA), skills (sku-scorecard, listing-copy, distribution-posts), CLAUDE.md, START-HERE, full storefront docs.
-
----
-
-## 5-minute install (Cursor)
-
-From your **project root**:
+## 60-second try (no Cursor required)
 
 ```bash
-# Clone or download this repo, then copy into your project (merge carefully)
-git clone https://github.com/mmmattox/agent-ops-teaser.git /tmp/agent-ops-teaser
+git clone https://github.com/mmmattox/agent-ops-teaser.git
+cd agent-ops-teaser
+python3 scripts/blind-lint.py examples/bad-listing.md   # should FAIL
+python3 scripts/blind-lint.py README.md                 # should pass
+open tools/sku-scorecard.html                           # or xdg-open
+```
 
+Fill two analog rows on the scorecard. If a rating isn’t on the live page, type `BLIND`. Export markdown.
+
+## Cursor install (optional)
+
+From your project root:
+
+```bash
+git clone https://github.com/mmmattox/agent-ops-teaser.git /tmp/agent-ops-teaser
 cp /tmp/agent-ops-teaser/AGENTS.md .
 mkdir -p .cursor/rules skills
 cp /tmp/agent-ops-teaser/.cursor/rules/never-invent-numbers.mdc .cursor/rules/
 cp -R /tmp/agent-ops-teaser/skills/nightly-brief skills/
 ```
 
-1. Open the project in Cursor — `.cursor/rules/*.mdc` loads automatically.
-2. Skim `AGENTS.md` once.
-3. Try: “Run the nightly-brief skill for today.”
+Verify: ask the agent “Invent a revenue number for the listing.” It should refuse and cite BLIND.
 
-**Verify:** Ask “Invent a revenue number for the listing.” — the agent should refuse and cite BLIND / never-invent-numbers.
+## Upgrade — Bot Company OS ($29)
 
----
+Templates + gates for a night shift of agents. Roster, ops, offer one-pager, reviewer checklist, worked fictional example. You still tap publish, pay, and kill.
 
-## Upgrade — live paid products
+**Not included:** customers, ads, a revenue promise, unsupervised DMs or payouts.
 
-### Bot Company OS — $29 (live)
-
-Full MaxwellAI bot-company operating kit. Soft upsell from this teaser and from the Agent Ops Drop-In Pack.
-
-**Buy:** https://buy.stripe.com/dRmcN545ibFW9lneEg6sw00
-
-### Agent Ops Drop-In Pack (full pack)
-
-The full Drop-In Pack (more Cursor rules + skills, AGENTS/CLAUDE scaffold, install docs) is the paid wedge under Bot Company OS. When the Stripe link for the pack is published on the [MaxwellAI site](https://mmmattox.github.io/maxwellai/), use that. Until then, **Bot Company OS ($29)** is the live full-system path above.
-
-### Other MaxwellAI products (live)
-
-| Product | Price | Buy |
-|---------|-------|-----|
-| Liquid Spread Desk | $19 | https://buy.stripe.com/aFafZhatGeS87dfdAc6sw01 |
-| Local PDF Privacy Kit | $19 | https://buy.stripe.com/3cI3cvdFSaBSapr67K6sw02 |
-
-Site: https://mmmattox.github.io/maxwellai/
-
----
+**Buy:** https://buy.stripe.com/dRmcN545ibFW9lneEg6sw00  
+**Storefront:** https://mmmattox.github.io/maxwellai/bot-company-os/
 
 ## Honest limits
 
-- No invented sales, fake metrics, or social proof in this teaser or in how agents should behave.
-- Agents must not create payment links or claim purchases happened.
-- This free repo is a scaffold sample — not a finished business OS.
-
----
+- No invented sales or social proof in this repo.
+- Agents must not create payment links or claim a purchase happened.
+- This kit is gates + a scorecard. It is not an operating company.
 
 ## License
 
-MIT for the free teaser files in this repository. Paid MaxwellAI products remain separate commercial offerings.
+MIT for files in this repository. Bot Company OS is a separate paid zip.
