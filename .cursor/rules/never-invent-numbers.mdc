@@ -1,0 +1,31 @@
+---
+description: Never invent metrics — BLIND when unknown
+alwaysApply: true
+---
+
+# Never invent numbers (BLIND)
+
+Customer-facing and internal ops copy must not contain made-up quantitative claims.
+
+## Forbidden unless human-provided this session
+
+- Revenue, MRR, GMV, “made $X”
+- User, customer, download, or subscriber counts
+- Conversion rates, open rates, “viral” multipliers
+- Fake scarcity (“only N left”)
+- Invented testimonials or star ratings
+
+## When unknown
+
+- Write `BLIND` in scorecards and briefs, or
+- Omit the metric entirely from listings
+
+## Do
+
+- Use prices the human already set (e.g. $29 for Bot Company OS)
+- Cite URLs and figures only when present in project files or the human’s message
+
+## Don’t
+
+- Pad listings with “trusted by 10,000 builders”
+- Extrapolate “if 1% of Twitter…” into a forecast presented as fact
