@@ -50,6 +50,15 @@ Templates + gates for a night shift of agents. Roster, ops, offer one-pager, rev
 **Buy:** https://buy.stripe.com/dRmcN545ibFW9lneEg6sw00  
 **Storefront:** https://mmmattox.github.io/maxwellai/bot-company-os/
 
+## Also live — Competitor Teardown Pack ($55)
+
+Async CSV + 2-page wedge brief for founders who need build/no-build on comps without a Fiverr thread. Public pages only; gaps marked BLIND.
+
+**Buy:** https://buy.stripe.com/dRm5kD6dq4du69bcw86sw03  
+**Storefront:** https://mmmattox.github.io/maxwellai/competitor-teardown/
+
+Other live MaxwellAI products: [catalog](https://mmmattox.github.io/maxwellai/).
+
 ## Honest limits
 
 - No invented sales or social proof in this repo.
